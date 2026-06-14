@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Why Your Demand Gen Campaign Is Not Working — Paridhi Garg</title>
+<meta name="description" content="Most demand gen campaigns that underperform get fixed in the wrong place. The problem is almost always upstream.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,600;1,9..144,300;1,9..144,400;1,9..144,600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+
+/* ── DARK THEME (default) ── */
+:root{
+  --bg:        #0e1116;
+  --bg2:       #161b22;
+  --bg3:       #1e2530;
+  --ink:       #f0f2f5;
+  --ink2:      #c9cdd8;
+  --ink3:      #8b929e;
+  --ink4:      #555e6b;
+  --accent:    #a78bfa;
+  --accent2:   #8b5cf6;
+  --accent-l:  #2e1f5e;
+  --accent-l2: #1e1538;
+  --rule:      #252d38;
+  --nav-bg0:   rgba(14,17,22,0);
+  --nav-bg1:   rgba(14,17,22,.92);
+  --nav-border:rgba(37,45,56,.8);
+  --serif:     'Fraunces', Georgia, serif;
+  --sans:      'Inter', system-ui, sans-serif;
+}
+
+/* ── LIGHT THEME ── */
+[data-theme="light"]{
+  --bg:        #f8f7f4;
+  --bg2:       #ffffff;
+  --bg3:       #eeecea;
+  --ink:       #111218;
+  --ink2:      #2e3044;
+  --ink3:      #6b6f7c;
+  --ink4:      #a0a4b0;
+  --accent:    #7c3aed;
+  --accent2:   #6d28d9;
+  --accent-l:  #ede9fe;
+  --accent-l2: #f5f3ff;
+  --rule:      #e4e2de;
+  --nav-bg0:   rgba(248,247,244,0);
+  --nav-bg1:   rgba(248,247,244,.92);
+  --nav-border:rgba(228,226,222,.9);
+}
+
+body{transition:background .3s,color .3s}
+*{transition:background-color .25s,border-color .25s,color .2s,box-shadow .25s}
+
+html{scroll-behavior:smooth}
+body{font-family:var(--sans);background:var(--bg);color:var(--ink);font-size:16px;line-height:1.65;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+
+/* ── NAV ── */
+nav{
+  position:fixed;top:0;left:0;right:0;z-index:200;
+  height:64px;padding:0 clamp(24px,6vw,80px);
+  display:flex;align-items:center;justify-content:space-between;
+  transition:background .3s,border-color .3s;
+  border-bottom:1px solid transparent;
+  background:var(--nav-bg0);
+}
+nav.solid{background:var(--nav-bg1);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-color:var(--nav-border)}
+.nav-logo{
+  font-family:var(--serif);font-size:18px;font-weight:700;
+  color:var(--ink);text-decoration:none;letter-spacing:.01em
+}
+.nav-links{display:flex;align-items:center;gap:4px;list-style:none}
+.nav-links li a{
+  display:block;padding:8px 14px;
+  font-size:11px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;
+  color:var(--ink3);text-decoration:none;
+  position:relative;transition:color .2s
+}
+.nav-links li a::after{
+  content:'';position:absolute;bottom:4px;left:14px;right:14px;
+  height:1.5px;background:var(--accent);
+  transform:scaleX(0);transform-origin:left;transition:transform .25s
+}
+.nav-links li a:hover{color:var(--ink)}
+.nav-links li a.on{color:var(--accent)}
+.nav-links li a.on::after{transform:scaleX(1)}
+.nav-contact-btn{
+  background:var(--accent);color:#fff !important;
+  border-radius:4px;padding:9px 20px !important;
+  letter-spacing:.08em !important;
+  transition:background .2s,transform .15s !important
+}
+.nav-contact-btn:hover{background:var(--accent2) !important;transform:translateY(-1px)}
+.nav-contact-btn::after{display:none !important}
+
+/* ── THEME TOGGLE ── */
+.theme-btn{
+  width:36px;height:36px;border-radius:50%;
+  border:1.5px solid var(--rule);background:var(--bg2);
+  display:flex;align-items:center;justify-content:center;
+  cursor:pointer;flex-shrink:0;
+  transition:border-color .2s,background .2s,transform .2s;
+  margin-left:8px
+}
+.theme-btn:hover{border-color:var(--accent);transform:rotate(20deg)}
+.theme-btn svg{width:16px;height:16px;fill:none;stroke:var(--ink3);stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;transition:stroke .2s}
+.theme-btn:hover svg{stroke:var(--accent)}
+.theme-btn .icon-moon{display:block}
+.theme-btn .icon-sun{display:none}
+[data-theme="light"] .theme-btn .icon-moon{display:none}
+[data-theme="light"] .theme-btn .icon-sun{display:block}
+
+/* ── HAMBURGER ── */
+.hamburger{
+  display:none;flex-direction:column;justify-content:center;gap:5px;
+  width:40px;height:40px;cursor:pointer;z-index:300;
+  background:none;border:none;padding:4px;flex-shrink:0
+}
+.hamburger span{display:block;height:2px;border-radius:2px;background:var(--ink);transition:all .3s ease}
+.hamburger span:nth-child(1){width:22px}
+.hamburger span:nth-child(2){width:16px}
+.hamburger span:nth-child(3){width:22px}
+.hamburger.open span:nth-child(1){transform:translateY(7px) rotate(45deg);width:22px}
+.hamburger.open span:nth-child(2){opacity:0;transform:translateX(-8px)}
+.hamburger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg);width:22px}
+
+/* ── MOBILE MENU ── */
+.mobile-menu{
+  display:none;position:fixed;top:64px;left:0;right:0;z-index:190;
+  background:var(--nav-bg1);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);
+  border-bottom:1px solid var(--rule);
+  flex-direction:column;padding:8px 0 16px;
+  box-shadow:0 8px 32px rgba(0,0,0,.1)
+}
+.mobile-menu.open{display:flex}
+.mobile-menu a{
+  display:block;padding:14px clamp(24px,6vw,80px);
+  font-size:13px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;
+  color:var(--ink3);text-decoration:none;
+  transition:color .2s,background .2s
+}
+.mobile-menu a:hover{color:var(--accent);background:var(--accent-l2)}
+.mobile-menu a.on{color:var(--accent)}
+.mobile-menu .mob-contact{
+  margin:8px clamp(24px,6vw,80px) 0;
+  background:var(--accent);color:#fff !important;
+  border-radius:6px;padding:14px 20px;text-align:center
+}
+.mobile-menu .mob-contact:hover{background:var(--accent2)}
+
+/* ── POST ── */
+.post-pg{padding-top:64px;min-height:100vh;background:var(--bg)}
+.post-back{max-width:720px;margin:0 auto;padding:32px clamp(24px,6vw,80px) 0}
+.post-back-btn{
+  display:inline-flex;align-items:center;gap:8px;
+  font-size:12px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;
+  color:var(--ink3);cursor:pointer;transition:color .2s;
+  text-decoration:none;background:none;border:none;padding:0
+}
+.post-back-btn:hover{color:var(--accent)}
+.post-back-btn svg{width:14px;height:14px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.post-wrap{max-width:720px;margin:0 auto;padding:40px clamp(24px,6vw,80px) 80px}
+.post-tag{font-size:10px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--accent);margin-bottom:16px;display:block}
+.post-title{
+  font-family:var(--serif);
+  font-size:clamp(30px,4.5vw,48px);
+  font-weight:600;line-height:1.1;
+  color:var(--ink);margin-bottom:20px;letter-spacing:-.01em
+}
+.post-meta{
+  display:flex;align-items:center;gap:16px;flex-wrap:wrap;
+  padding-bottom:28px;border-bottom:1px solid var(--rule);margin-bottom:40px
+}
+.post-meta-author{font-size:13px;font-weight:500;color:var(--ink2)}
+.post-meta-date{font-size:13px;color:var(--ink3)}
+.post-meta-dot{width:3px;height:3px;border-radius:50%;background:var(--ink4);flex-shrink:0}
+.post-meta-read{font-size:13px;color:var(--ink3)}
+.post-body{font-size:16.5px;line-height:1.85;color:var(--ink2);font-weight:300}
+.post-body p{margin-bottom:24px}
+.post-body p:last-child{margin-bottom:0}
+.post-body h2{
+  font-family:var(--serif);font-size:24px;font-weight:600;
+  color:var(--ink);margin:48px 0 16px;line-height:1.2
+}
+.post-body strong{font-weight:600;color:var(--ink)}
+.post-body blockquote{
+  border-left:2px solid var(--accent);
+  padding:4px 0 4px 24px;margin:32px 0;
+  font-family:var(--serif);font-size:20px;font-style:italic;
+  color:var(--ink3);line-height:1.6
+}
+.post-end{
+  margin-top:56px;padding-top:32px;
+  border-top:1px solid var(--rule);
+  display:flex;align-items:center;justify-content:space-between;gap:24px;flex-wrap:wrap
+}
+.post-end-label{font-size:13px;color:var(--ink3)}
+.post-share-btn{
+  display:inline-flex;align-items:center;gap:8px;
+  background:var(--accent);color:#fff;
+  padding:10px 20px;border-radius:5px;
+  font-size:12px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;
+  text-decoration:none;transition:background .2s,transform .15s
+}
+.post-share-btn:hover{background:var(--accent2);transform:translateY(-1px)}
+
+/* ── FOOTER ── */
+.site-footer{
+  border-top:1px solid var(--rule);
+  padding:24px clamp(24px,6vw,80px);
+  display:flex;align-items:center;justify-content:space-between;
+  background:var(--bg2)
+}
+.ft-text,.ft-yr{font-size:11.5px;color:var(--ink4);font-weight:500;letter-spacing:.04em}
+
+@media(max-width:900px){
+  .nav-links{display:none}
+  .hamburger{display:flex}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="nav">
+  <a href="/index.html" class="nav-logo">Paridhi Garg</a>
+  <ul class="nav-links">
+    <li><a href="/index.html">Home</a></li>
+    <li><a href="index.html#work">Work</a></li>
+    <li><a href="/index.html" class="on">Blog</a></li>
+    <li><a href="index.html#contact" class="nav-contact-btn">Contact</a></li>
+  </ul>
+  <div style="display:flex;align-items:center;gap:4px">
+    <button class="theme-btn" onclick="toggleTheme()" aria-label="Toggle theme" title="Toggle light/dark">
+      <svg class="icon-moon" viewBox="0 0 24 24"><path d="M21 12.79A9 9 0 1111.21 3a7 7 0 109.79 9.79z"/></svg>
+      <svg class="icon-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
+    </button>
+    <button class="hamburger" id="hamburger" onclick="toggleMenu()" aria-label="Open menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<!-- MOBILE MENU -->
+<div class="mobile-menu" id="mobile-menu">
+  <a href="/index.html">Home</a>
+  <a href="/index.html">Work</a>
+  <a href="/index.html" class="on">Blog</a>
+  <a href="/index.html" class="mob-contact">Contact</a>
+</div>
+
+<!-- POST -->
+<div class="post-pg">
+
+  <div class="post-back">
+    <a href="/index.html" class="post-back-btn">
+      <svg viewBox="0 0 24 24"><path d="M19 12H5M12 5l-7 7 7 7"/></svg>
+      Back to writing
+    </a>
+  </div>
+
+  <div class="post-wrap">
+    <span class="post-tag">Demand Generation</span>
+    <h1 class="post-title">Why Your Demand Gen Campaign Is Not Working</h1>
+    <div class="post-meta">
+      <span class="post-meta-author">Paridhi Garg</span>
+      <span class="post-meta-dot"></span>
+      <span class="post-meta-date">June 2026</span>
+      <span class="post-meta-dot"></span>
+      <span class="post-meta-read">5 min read</span>
+    </div>
+
+    <div class="post-body">
+
+      <p>Most demand gen campaigns that underperform get fixed in the wrong place. Marketers rewrite subject lines, test send times, switch from three emails to five, move the CTA button above the fold. Sometimes these tweaks help at the margins. They rarely fix the actual problem.</p>
+
+      <p>The problem is usually upstream. And it almost always comes down to two things: who you think you are talking to, and what you think they need to hear.</p>
+
+      <h2>Warm leads are not one audience</h2>
+
+      <p>There is a common assumption built into most nurture campaigns: that a warm lead is a warm lead. They know the brand, they have engaged before, so you send them a sequence and wait.</p>
+
+      <p>The issue is that a warm list is rarely one audience. It is several audiences who happen to share a CRM tag.</p>
+
+      <p>A B2B decision-maker and a B2C buyer are evaluating your product for completely different reasons, on completely different timelines, with completely different objections. Someone in the US and someone in India may have different buying contexts, different price sensitivities, and different relationships with urgency. A person who attended a webinar last week and a person who downloaded a resource three months ago are not at the same point in their journey.</p>
+
+      <p>When you send the same email to all of them, you are optimizing for the average of your audience, which means you are speaking directly to almost no one.</p>
+
+      <blockquote>Segmentation is not a nice-to-have. It is the prerequisite for everything else working.</blockquote>
+
+      <h2>Messaging does more heavy lifting than most people give it credit for</h2>
+
+      <p>Once you have your segments, the next question is what each one actually needs to hear.</p>
+
+      <p>This is where most demand gen campaigns lose the thread. The instinct is to lead with what you offer: the features, the outcome, the value proposition. But whether that approach works depends entirely on who is reading it.</p>
+
+      <p>Decision-makers are time-poor and usually already aware of their problem. They are not looking to be convinced that the problem exists. They want to know that you understand it specifically, and that booking a call is worth thirty minutes of their time. Leading with the problem, framed precisely, works better here than leading with the solution.</p>
+
+      <p>For buyers who are earlier in their journey, or more aspirationally motivated, outcome-led messaging tends to perform better. They respond to where they could be, not just where they are now.</p>
+
+      <p>Neither approach is universally correct. What matters is matching the message to the mental state of the person receiving it. The way to figure that out is not to guess. It is to think carefully about what someone in that segment already believes, what is holding them back, and what would make the next step feel obvious rather than effortful.</p>
+
+      <h2>The infrastructure question</h2>
+
+      <p>Workflow setup, send cadence, automation logic: these matter, and they need to be right. But they are the vehicle, not the message. A perfectly built sequence carrying the wrong message will underperform a simpler sequence carrying the right one.</p>
+
+      <p>The mistake many marketers make, especially earlier in their careers, is spending the majority of campaign prep time on the operational side and treating the copy as something to finalize at the end. The result is technically flawless emails that do not move anyone.</p>
+
+      <p>Work backwards. Start with the message each segment needs to hear. Build the infrastructure around delivering it well.</p>
+
+      <h2>The one question to ask before every campaign</h2>
+
+      <p>Before writing a single email, it is worth sitting with this question for each segment: what does this person already believe, and what is standing between that belief and the action I want them to take?</p>
+
+      <p>If you can answer that honestly and specifically, the messaging becomes much clearer. If you cannot, more emails will not fix it.</p>
+
+      <p>Demand gen is not a volume problem. It is a relevance problem. And relevance starts with actually knowing who you are talking to.</p>
+
+    </div>
+
+    <div class="post-end">
+      <span class="post-end-label">Found this useful? Share it.</span>
+      <a class="post-share-btn" href="https://www.linkedin.com/in/paridhi-garg-a4660429b" target="_blank" rel="noopener noreferrer">
+        Share on LinkedIn
+      </a>
+    </div>
+  </div>
+
+</div>
+
+<footer class="site-footer">
+  <span class="ft-text">Paridhi Garg</span>
+  <span class="ft-yr">© 2026</span>
+</footer>
+
+<script>
+// THEME
+function toggleTheme(){
+  const html=document.documentElement;
+  const isDark=html.getAttribute('data-theme')!=='light';
+  html.setAttribute('data-theme',isDark?'light':'dark');
+  localStorage.setItem('theme',isDark?'light':'dark');
+}
+(function(){
+  const saved=localStorage.getItem('theme');
+  if(saved==='light')document.documentElement.setAttribute('data-theme','light');
+})();
+
+// NAV SOLID
+window.addEventListener('scroll',()=>{
+  document.getElementById('nav').classList.toggle('solid',window.scrollY>10);
+},{passive:true});
+
+// MOBILE MENU
+function toggleMenu(){
+  document.getElementById('hamburger').classList.toggle('open');
+  document.getElementById('mobile-menu').classList.toggle('open');
+}
+</script>
+</body>
+</html>
