@@ -31,11 +31,6 @@
 html{scroll-behavior:smooth}
 body{font-family:var(--sans);background:var(--bg);color:var(--ink);font-size:16px;line-height:1.65;-webkit-font-smoothing:antialiased;overflow-x:hidden}
 
-/* ─── CURSOR ─── */
-#cur{position:fixed;width:8px;height:8px;background:var(--accent);border-radius:50%;pointer-events:none;z-index:9000;transform:translate(-50%,-50%);transition:width .2s,height .2s,opacity .3s}
-#cur-r{position:fixed;width:32px;height:32px;border:1.5px solid var(--accent);border-radius:50%;pointer-events:none;z-index:8999;transform:translate(-50%,-50%);opacity:.35;transition:left .12s ease,top .12s ease,width .2s,height .2s}
-body:not(:hover) #cur,body:not(:hover) #cur-r{opacity:0}
-
 /* ─── NAV ─── */
 nav{
   position:fixed;top:0;left:0;right:0;z-index:200;
@@ -516,6 +511,74 @@ hr.rule{border:none;border-top:1px solid var(--rule);margin:0 clamp(24px,6vw,80p
 .ccard-lbl{font-size:10px;color:var(--ink4);text-transform:uppercase;letter-spacing:.12em;font-weight:700}
 .ccard-val{font-size:15px;color:var(--ink);font-weight:500}
 
+/* ═══════════ BLOG POST PAGE ═══════════ */
+.post-pg{padding-top:64px;min-height:100vh;background:var(--bg)}
+.post-back{
+  max-width:720px;margin:0 auto;
+  padding:32px clamp(24px,6vw,80px) 0;
+}
+.post-back-btn{
+  display:inline-flex;align-items:center;gap:8px;
+  font-size:12px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;
+  color:var(--ink3);cursor:pointer;transition:color .2s;
+  text-decoration:none;background:none;border:none;padding:0
+}
+.post-back-btn:hover{color:var(--accent)}
+.post-back-btn svg{width:14px;height:14px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.post-wrap{
+  max-width:720px;margin:0 auto;
+  padding:40px clamp(24px,6vw,80px) 80px
+}
+.post-tag{
+  font-size:10px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;
+  color:var(--accent);margin-bottom:16px;display:block
+}
+.post-title{
+  font-family:var(--serif);
+  font-size:clamp(30px,4.5vw,48px);
+  font-weight:600;line-height:1.1;
+  color:var(--ink);margin-bottom:20px;letter-spacing:-.01em
+}
+.post-meta{
+  display:flex;align-items:center;gap:16px;
+  padding-bottom:28px;border-bottom:1px solid var(--rule);
+  margin-bottom:40px
+}
+.post-meta-author{font-size:13px;font-weight:500;color:var(--ink2)}
+.post-meta-date{font-size:13px;color:var(--ink3)}
+.post-meta-dot{width:3px;height:3px;border-radius:50%;background:var(--ink4);flex-shrink:0}
+.post-meta-read{font-size:13px;color:var(--ink3)}
+.post-body{font-size:16.5px;line-height:1.85;color:var(--ink2);font-weight:300}
+.post-body p{margin-bottom:24px}
+.post-body p:last-child{margin-bottom:0}
+.post-body h2{
+  font-family:var(--serif);font-size:24px;font-weight:600;
+  color:var(--ink);margin:48px 0 16px;line-height:1.2
+}
+.post-body h2:first-child{margin-top:0}
+.post-body strong{font-weight:600;color:var(--ink)}
+.post-body blockquote{
+  border-left:2px solid var(--accent);
+  padding:4px 0 4px 24px;
+  margin:32px 0;
+  font-family:var(--serif);font-size:20px;font-style:italic;
+  color:var(--ink3);line-height:1.6
+}
+.post-end{
+  margin-top:56px;padding-top:32px;
+  border-top:1px solid var(--rule);
+  display:flex;align-items:center;justify-content:space-between;gap:24px;flex-wrap:wrap
+}
+.post-end-label{font-size:13px;color:var(--ink3)}
+.post-share-btn{
+  display:inline-flex;align-items:center;gap:8px;
+  background:var(--accent);color:#fff;
+  padding:10px 20px;border-radius:5px;
+  font-size:12px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;
+  text-decoration:none;transition:background .2s,transform .15s;cursor:pointer;border:none
+}
+.post-share-btn:hover{background:var(--accent2);transform:translateY(-1px)}
+
 /* ─── FOOTER ─── */
 .site-footer{
   border-top:1px solid var(--rule);
@@ -583,9 +646,6 @@ hr.rule{border:none;border-top:1px solid var(--rule);margin:0 clamp(24px,6vw,80p
 </style>
 </head>
 <body>
-
-<div id="cur"></div>
-<div id="cur-r"></div>
 
 <!-- ═══ NAV ═══ -->
 <nav id="nav">
@@ -972,14 +1032,14 @@ hr.rule{border:none;border-top:1px solid var(--rule);margin:0 clamp(24px,6vw,80p
     </div>
   </div>
   <div class="blog-entries">
-    <div class="be rv">
+    <div class="be rv" onclick="go('post-blog1')" style="cursor:pointer">
       <div class="be-num">01</div>
       <div>
         <div class="be-tag">Demand Gen</div>
-        <div class="be-title">What actually moves the needle in B2B demand gen</div>
-        <div class="be-exc">The tactics that generate real pipeline versus the ones that just look good in reports. How to tell the difference before you waste a quarter on the wrong channel.</div>
+        <div class="be-title">Why Your Demand Gen Campaign Is Not Working</div>
+        <div class="be-exc">Most underperforming campaigns get fixed in the wrong place. The problem is almost always upstream, and it comes down to two things: who you think you are talking to, and what you think they need to hear.</div>
       </div>
-      <div><span class="be-pill soon">Coming soon</span></div>
+      <div><span class="be-pill">June 2026</span></div>
     </div>
     <div class="be rv">
       <div class="be-num">02</div>
@@ -999,6 +1059,89 @@ hr.rule{border:none;border-top:1px solid var(--rule);margin:0 clamp(24px,6vw,80p
       </div>
       <div><span class="be-pill soon">Coming soon</span></div>
     </div>
+  </div>
+  <footer class="site-footer"><span class="ft-text">Paridhi Garg</span><span class="ft-yr">© 2026</span></footer>
+</div>
+
+
+<!-- ═══════════════════════ BLOG POST 1 ═══════════════════════ -->
+<div class="pg" id="pg-post-blog1">
+  <div class="post-pg">
+
+    <div class="post-back">
+      <button class="post-back-btn" onclick="go('blog')">
+        <svg viewBox="0 0 24 24"><path d="M19 12H5M12 5l-7 7 7 7"/></svg>
+        Back to writing
+      </button>
+    </div>
+
+    <div class="post-wrap">
+      <span class="post-tag">Demand Generation</span>
+      <h1 class="post-title">Why Your Demand Gen Campaign Is Not Working</h1>
+      <div class="post-meta">
+        <span class="post-meta-author">Paridhi Garg</span>
+        <span class="post-meta-dot"></span>
+        <span class="post-meta-date">June 2026</span>
+        <span class="post-meta-dot"></span>
+        <span class="post-meta-read">5 min read</span>
+      </div>
+
+      <div class="post-body">
+
+        <p>Most demand gen campaigns that underperform get fixed in the wrong place. Marketers rewrite subject lines, test send times, switch from three emails to five, move the CTA button above the fold. Sometimes these tweaks help at the margins. They rarely fix the actual problem.</p>
+
+        <p>The problem is usually upstream. And it almost always comes down to two things: who you think you are talking to, and what you think they need to hear.</p>
+
+        <h2>Warm leads are not one audience</h2>
+
+        <p>There is a common assumption built into most nurture campaigns: that a warm lead is a warm lead. They know the brand, they have engaged before, so you send them a sequence and wait.</p>
+
+        <p>The issue is that a warm list is rarely one audience. It is several audiences who happen to share a CRM tag.</p>
+
+        <p>A B2B decision-maker and a B2C buyer are evaluating your product for completely different reasons, on completely different timelines, with completely different objections. Someone in the US and someone in India may have different buying contexts, different price sensitivities, and different relationships with urgency. A person who attended a webinar last week and a person who downloaded a resource three months ago are not at the same point in their journey.</p>
+
+        <p>When you send the same email to all of them, you are optimizing for the average of your audience, which means you are speaking directly to almost no one.</p>
+
+        <blockquote>Segmentation is not a nice-to-have. It is the prerequisite for everything else working.</blockquote>
+
+        <h2>Messaging does more heavy lifting than most people give it credit for</h2>
+
+        <p>Once you have your segments, the next question is what each one actually needs to hear.</p>
+
+        <p>This is where most demand gen campaigns lose the thread. The instinct is to lead with what you offer: the features, the outcome, the value proposition. But whether that approach works depends entirely on who is reading it.</p>
+
+        <p>Decision-makers are time-poor and usually already aware of their problem. They are not looking to be convinced that the problem exists. They want to know that you understand it specifically, and that booking a call is worth thirty minutes of their time. Leading with the problem, framed precisely, works better here than leading with the solution.</p>
+
+        <p>For buyers who are earlier in their journey, or more aspirationally motivated, outcome-led messaging tends to perform better. They respond to where they could be, not just where they are now.</p>
+
+        <p>Neither approach is universally correct. What matters is matching the message to the mental state of the person receiving it. The way to figure that out is not to guess. It is to think carefully about what someone in that segment already believes, what is holding them back, and what would make the next step feel obvious rather than effortful.</p>
+
+        <h2>The infrastructure question</h2>
+
+        <p>Workflow setup, send cadence, automation logic: these matter, and they need to be right. But they are the vehicle, not the message. A perfectly built sequence carrying the wrong message will underperform a simpler sequence carrying the right one.</p>
+
+        <p>The mistake many marketers make, especially earlier in their careers, is spending the majority of campaign prep time on the operational side and treating the copy as something to finalize at the end. The result is technically flawless emails that do not move anyone.</p>
+
+        <p>Work backwards. Start with the message each segment needs to hear. Build the infrastructure around delivering it well.</p>
+
+        <h2>The one question to ask before every campaign</h2>
+
+        <p>Before writing a single email, it is worth sitting with this question for each segment: what does this person already believe, and what is standing between that belief and the action I want them to take?</p>
+
+        <p>If you can answer that honestly and specifically, the messaging becomes much clearer. If you cannot, more emails will not fix it.</p>
+
+        <p>Demand gen is not a volume problem. It is a relevance problem. And relevance starts with actually knowing who you are talking to.</p>
+
+      </div>
+
+      <div class="post-end">
+        <span class="post-end-label">Found this useful? Share it.</span>
+        <a class="post-share-btn" href="https://www.linkedin.com/in/paridhi-garg-a4660429b" target="_blank" rel="noopener noreferrer">
+          Share on LinkedIn
+        </a>
+      </div>
+    </div>
+
   </div>
   <footer class="site-footer"><span class="ft-text">Paridhi Garg</span><span class="ft-yr">© 2026</span></footer>
 </div>
@@ -1030,15 +1173,6 @@ hr.rule{border:none;border-top:1px solid var(--rule);margin:0 clamp(24px,6vw,80p
 
 
 <script>
-// ─ CURSOR
-const cur=document.getElementById('cur'),curR=document.getElementById('cur-r');
-let mx=0,my=0,rx=0,ry=0;
-document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;cur.style.left=mx+'px';cur.style.top=my+'px';});
-(function loop(){rx+=(mx-rx)*.12;ry+=(my-ry)*.12;curR.style.left=rx+'px';curR.style.top=ry+'px';requestAnimationFrame(loop);})();
-document.querySelectorAll('a,.btn,.sc,.art-card,.asc,.pi-hd,.wpc,.ccard,.tool,.htag,.be').forEach(el=>{
-  el.addEventListener('mouseenter',()=>{cur.style.width='16px';cur.style.height='16px';curR.style.width='48px';curR.style.height='48px';});
-  el.addEventListener('mouseleave',()=>{cur.style.width='8px';cur.style.height='8px';curR.style.width='32px';curR.style.height='32px';});
-});
 
 // ─ NAV SOLID on any scroll
 window.addEventListener('scroll',()=>{
@@ -1053,6 +1187,11 @@ function go(id){
   document.getElementById('pg-'+id).classList.add('show');
   const nl=document.getElementById('nl-'+id);if(nl)nl.classList.add('on');
   const ml=document.getElementById('ml-'+id);if(ml)ml.classList.add('on');
+  // keep Blog nav highlighted when reading a post
+  if(id.startsWith('post-blog')){
+    const nb=document.getElementById('nl-blog');if(nb)nb.classList.add('on');
+    const mb=document.getElementById('ml-blog');if(mb)mb.classList.add('on');
+  }
   window.scrollTo({top:0,behavior:'instant'});
   setTimeout(initReveal,50);
 }
