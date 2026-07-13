@@ -699,12 +699,12 @@ hr.rule{border:none;border-top:1px solid var(--rule);margin:0 clamp(24px,6vw,80p
 
 <!-- ═══ NAV ═══ -->
 <nav id="nav">
-  <span class="nav-logo" onclick="go('home')">Paridhi Garg</span>
+  <a class="nav-logo" href="/" onclick="go('home');return false;">Paridhi Garg</a>
   <ul class="nav-links">
-    <li><a id="nl-home" class="on" onclick="go('home')">Home</a></li>
-    <li><a id="nl-work" onclick="go('work')">Work</a></li>
-    <li><a id="nl-blog" onclick="go('blog')">Blog</a></li>
-    <li><a id="nl-contact" class="nav-contact-btn" onclick="go('contact')">Contact</a></li>
+    <li><a id="nl-home" class="on" href="/" onclick="go('home');return false;">Home</a></li>
+    <li><a id="nl-work" href="/work" onclick="go('work');return false;">Work</a></li>
+    <li><a id="nl-blog" href="/blog" onclick="go('blog');return false;">Blog</a></li>
+    <li><a id="nl-contact" class="nav-contact-btn" href="/contact" onclick="go('contact');return false;">Contact</a></li>
   </ul>
   <div style="display:flex;align-items:center;gap:4px">
     <button class="theme-btn" onclick="toggleTheme()" aria-label="Toggle theme" title="Toggle light/dark">
@@ -721,10 +721,10 @@ hr.rule{border:none;border-top:1px solid var(--rule);margin:0 clamp(24px,6vw,80p
 
 <!-- ═══ MOBILE MENU ═══ -->
 <div class="mobile-menu" id="mobile-menu">
-  <a id="ml-home" class="on" onclick="go('home');toggleMenu()">Home</a>
-  <a id="ml-work" onclick="go('work');toggleMenu()">Work</a>
-  <a id="ml-blog" onclick="go('blog');toggleMenu()">Blog</a>
-  <a id="ml-contact" class="mob-contact" onclick="go('contact');toggleMenu()">Contact</a>
+  <a id="ml-home" class="on" href="/" onclick="go('home');toggleMenu();return false;">Home</a>
+  <a id="ml-work" href="/work" onclick="go('work');toggleMenu();return false;">Work</a>
+  <a id="ml-blog" href="/blog" onclick="go('blog');toggleMenu();return false;">Blog</a>
+  <a id="ml-contact" class="mob-contact" href="/contact" onclick="go('contact');toggleMenu();return false;">Contact</a>
 </div>
 
 <!-- ═══════════════════════ HOME PAGE ═══════════════════════ -->
@@ -739,26 +739,26 @@ hr.rule{border:none;border-top:1px solid var(--rule);margin:0 clamp(24px,6vw,80p
       <div class="hero-grid">
         <div>
           <h1 class="hero-h1">Paridhi<br><em>Garg.</em></h1>
-          <div class="hero-div"><span class="hero-role">Content and Demand Generation Marketer</span></div>
-          <p class="hero-bio">I write content people actually read, and run campaigns that move prospects forward. Over the past year I have worked across SEO, demand generation, and marketing automation for B2B technology companies.</p>
+          <div class="hero-div"><span class="hero-role">Content & Demand Generation Strategist</span></div>
+          <p class="hero-bio">I plan and run B2B marketing campaigns end to end: researching the audience, building the strategy, and executing across content, email, and automation. Over the past year I have owned demand generation programs and turned campaign data into decisions for B2B technology companies.</p>
           <div class="hero-tags">
-            <span class="htag">SEO Content</span>
-            <span class="htag">Email Campaigns</span>
+            <span class="htag">Campaign Strategy</span>
             <span class="htag">Demand Generation</span>
-            <span class="htag">Marketing Automation</span>
+            <span class="htag">Audience Research</span>
+            <span class="htag">Email & Nurture</span>
             <span class="htag">B2B</span>
           </div>
           <div class="hero-btns">
-            <span class="btn btn-solid" onclick="go('work')">See My Work <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
-            <span class="btn btn-outline" onclick="go('contact')">Get in Touch</span>
+            <a class="btn btn-solid" href="/work" onclick="go('work');return false;">See My Work <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+            <a class="btn btn-outline" href="/contact" onclick="go('contact');return false;">Get in Touch</a>
           </div>
         </div>
         <div>
           <div class="stat-grid">
-            <div class="sc"><div class="sc-n"><span class="cnt" data-to="30">0</span><span class="sc-s">+</span></div><div class="sc-l">SEO articles published</div></div>
-            <div class="sc"><div class="sc-n"><span class="cnt" data-to="77">0</span></div><div class="sc-l">Keywords ranked organically</div></div>
             <div class="sc"><div class="sc-n"><span class="cnt" data-to="50">0</span><span class="sc-s">+</span></div><div class="sc-l">Qualified B2B leads generated</div></div>
             <div class="sc"><div class="sc-n"><span class="sc-s">+</span><span class="cnt" data-to="15">0</span><span class="sc-s">%</span></div><div class="sc-l">Email open rate improvement</div></div>
+            <div class="sc"><div class="sc-n"><span class="cnt" data-to="30">0</span><span class="sc-s">+</span></div><div class="sc-l">Content assets published</div></div>
+            <div class="sc"><div class="sc-n"><span class="cnt" data-to="77">0</span></div><div class="sc-l">Organic keyword positions driven by content</div></div>
             <div class="sc w2">
               <div><div class="sc-n"><span class="cnt" data-to="4">0</span><span class="sc-s">&thinsp;Regions</span></div><div class="sc-l">Campaigns executed across</div></div>
               <div class="rtags"><span class="rtag">India</span><span class="rtag">US</span><span class="rtag">Europe</span><span class="rtag">MEA</span></div>
@@ -769,7 +769,7 @@ hr.rule{border:none;border-top:1px solid var(--rule);margin:0 clamp(24px,6vw,80p
     </div>
     <div class="ticker">
       <div class="tick-track">
-        <span class="tick-item"><span class="tick-dot"></span>SEO Content Strategy</span>
+        <span class="tick-item"><span class="tick-dot"></span>Campaign Strategy</span>
         <span class="tick-item"><span class="tick-dot"></span>Email Drip Campaigns</span>
         <span class="tick-item"><span class="tick-dot"></span>Demand Generation</span>
         <span class="tick-item"><span class="tick-dot"></span>Webinar Marketing</span>
@@ -777,7 +777,7 @@ hr.rule{border:none;border-top:1px solid var(--rule);margin:0 clamp(24px,6vw,80p
         <span class="tick-item"><span class="tick-dot"></span>Audience Segmentation</span>
         <span class="tick-item"><span class="tick-dot"></span>Performance Analytics</span>
         <span class="tick-item"><span class="tick-dot"></span>B2B Lead Nurturing</span>
-        <span class="tick-item"><span class="tick-dot"></span>SEO Content Strategy</span>
+        <span class="tick-item"><span class="tick-dot"></span>Campaign Strategy</span>
         <span class="tick-item"><span class="tick-dot"></span>Email Drip Campaigns</span>
         <span class="tick-item"><span class="tick-dot"></span>Demand Generation</span>
         <span class="tick-item"><span class="tick-dot"></span>Webinar Marketing</span>
@@ -801,21 +801,21 @@ hr.rule{border:none;border-top:1px solid var(--rule);margin:0 clamp(24px,6vw,80p
           <div class="dc-icon"><svg viewBox="0 0 24 24"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 013 3L7 19l-4 1 1-4L16.5 3.5z"/></svg></div>
           <div class="dc-num">01</div>
           <div class="dc-title">Content Strategy & Writing</div>
-          <div class="dc-desc">Search-driven articles, thought leadership, and editorial calendars built around audience intent. From keyword research to published, ranking content.</div>
+          <div class="dc-desc">Content built on audience research and market insight, not templates. Positioning, editorial calendars, and long-form writing that supports pipeline, not just page views.</div>
         </div>
         <div class="dc">
           <div class="dc-accent-bar"></div>
           <div class="dc-icon"><svg viewBox="0 0 24 24"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg></div>
           <div class="dc-num">02</div>
           <div class="dc-title">Demand Generation</div>
-          <div class="dc-desc">End-to-end campaign execution: email sequences, nurture frameworks, and webinar promotion. Built to move prospects through the funnel.</div>
+          <div class="dc-desc">End-to-end campaign ownership: email sequences, nurture frameworks, and webinar promotion, planned and run from strategy to send.</div>
         </div>
         <div class="dc">
           <div class="dc-accent-bar"></div>
           <div class="dc-icon"><svg viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/><path d="M6 8h.01M9 8h6"/></svg></div>
           <div class="dc-num">03</div>
           <div class="dc-title">Marketing Operations</div>
-          <div class="dc-desc">Automation workflows, campaign architecture, and performance reporting in Mautic, HubSpot, and beyond. Programs that run efficiently and measure what matters.</div>
+          <div class="dc-desc">Automation workflows, campaign architecture, and performance reporting in Mautic, HubSpot, and beyond. Programs built to run efficiently and measured against real outcomes.</div>
         </div>
       </div>
     </div>
@@ -934,8 +934,8 @@ hr.rule{border:none;border-top:1px solid var(--rule);margin:0 clamp(24px,6vw,80p
       <p class="sec-sub rv" style="margin-bottom:0">A snapshot of recent projects.</p>
       <div class="work-prev-grid rv">
         <div class="wpc" onclick="go('work')">
-          <div class="wpc-thumb t1">Content / SEO</div>
-          <div class="wpc-body"><div class="wpc-tag">Content Strategy</div><div class="wpc-title">SEO Content Program for AI & Workforce Learning</div><div class="wpc-desc">30+ articles, 77 keywords ranked, built from scratch.</div></div>
+          <div class="wpc-thumb t1">Content Strategy</div>
+          <div class="wpc-body"><div class="wpc-tag">Content Strategy</div><div class="wpc-title">Content Program for AI & Workforce Learning</div><div class="wpc-desc">30+ articles built from audience research, driving 77 organic keyword positions.</div></div>
         </div>
         <div class="wpc" onclick="go('work')">
           <div class="wpc-thumb t2">Demand Gen</div>
@@ -981,7 +981,7 @@ hr.rule{border:none;border-top:1px solid var(--rule);margin:0 clamp(24px,6vw,80p
     <div class="work-hero-inner">
       <div class="eyebrow">Work</div>
       <h1 class="sec-title" style="font-size:clamp(36px,5vw,64px);max-width:640px;line-height:1.05">Work I have done.</h1>
-      <p class="sec-sub" style="margin-top:16px">Projects with context, contribution, and outcomes. Plus published articles you can read right now.</p>
+      <p class="sec-sub" style="margin-top:16px">Projects I have owned end to end, the thinking behind them, my role, and the results. Plus published writing you can read right now.</p>
     </div>
   </div>
 
@@ -990,13 +990,13 @@ hr.rule{border:none;border-top:1px solid var(--rule);margin:0 clamp(24px,6vw,80p
       <div class="pi open rv" id="p1">
         <div class="pi-hd" onclick="toggleP('p1')">
           <div class="pi-n">01</div>
-          <div><div class="pi-tag">Content Marketing / SEO</div><div class="pi-title">SEO Content Program for AI & Workforce Learning</div></div>
+          <div><div class="pi-tag">Content Strategy</div><div class="pi-title">Content Strategy Program for AI & Workforce Learning</div></div>
           <div class="pi-tog">+</div>
         </div>
         <div class="pi-bd open" id="p1-b">
-          <div class="pc"><div class="pc-lbl">Overview</div><p>Developed and executed an SEO-focused content initiative to increase organic visibility around AI, workforce development, cloud training, and enterprise learning topics.</p></div>
-          <div class="pc"><div class="pc-lbl">My Contribution</div><ul><li>Keyword research & content opportunity analysis</li><li>Competitive content benchmarking</li><li>SEO blog creation & on-page optimization</li><li>Performance monitoring via SEMrush</li></ul></div>
-          <div class="pc"><div class="pc-lbl">Impact</div><div class="ipills"><span class="ip">30+ SEO articles</span><span class="ip">77 keywords ranked</span><span class="ip">High-intent visibility</span></div></div>
+          <div class="pc"><div class="pc-lbl">Overview</div><p>Developed and executed a content strategy to build authority and organic visibility around AI, workforce development, cloud training, and enterprise learning topics, grounded in audience and market research.</p></div>
+          <div class="pc"><div class="pc-lbl">My Contribution</div><ul><li>Audience and market research to identify content opportunities</li><li>Competitive content benchmarking</li><li>Research-based content creation and on-page optimization</li><li>Performance analysis and reporting via SEMrush</li></ul></div>
+          <div class="pc"><div class="pc-lbl">Impact</div><div class="ipills"><span class="ip">30+ articles published</span><span class="ip">77 keyword positions ranked</span><span class="ip">High-intent visibility</span></div></div>
         </div>
       </div>
       <div class="pi rv" id="p2">
@@ -1031,33 +1031,33 @@ hr.rule{border:none;border-top:1px solid var(--rule);margin:0 clamp(24px,6vw,80p
       <div class="eyebrow rv">Published</div>
       <h2 class="sec-title rv">Published articles.</h2>
       <div class="art-tabs rv">
-        <button class="atab on" onclick="switchTab(this,'ac')">Content & SEO</button>
+        <button class="atab on" onclick="switchTab(this,'ac')">Published Writing</button>
         <button class="atab" onclick="switchTab(this,'aa')">Campaign Assets</button>
       </div>
       <div class="apane on" id="ac">
         <div class="art-grid">
           <a href="https://www.nplus.global/blogs/best-ai-learning-platforms-in-2026/" target="_blank" rel="nofollow noreferrer" class="art-card rv">
-            <div><div class="art-tag">SEO / Writing</div><div class="art-title">Best AI Learning Platforms in 2026</div></div>
+            <div><div class="art-tag">Content Strategy</div><div class="art-title">Best AI Learning Platforms in 2026</div></div>
             <div class="art-foot"><span class="art-rank">Pos. 26 / Vol 880</span><span class="art-arrow">↗</span></div>
           </a>
           <a href="https://www.nplus.global/blogs/how-to-learn-artificial-intelligence/" target="_blank" rel="nofollow noreferrer" class="art-card rv">
-            <div><div class="art-tag">SEO / Writing</div><div class="art-title">How to Learn Artificial Intelligence</div></div>
+            <div><div class="art-tag">Content Strategy</div><div class="art-title">How to Learn Artificial Intelligence</div></div>
             <div class="art-foot"><span class="art-rank">Vol 5.4K / KD 80</span><span class="art-arrow">↗</span></div>
           </a>
           <a href="https://www.nplus.global/blogs/top-10-applications-of-artificial-intelligence/" target="_blank" rel="nofollow noreferrer" class="art-card rv">
-            <div><div class="art-tag">SEO / Writing</div><div class="art-title">Top 10 Applications of Artificial Intelligence</div></div>
+            <div><div class="art-tag">Content Strategy</div><div class="art-title">Top 10 Applications of Artificial Intelligence</div></div>
             <div class="art-foot"><span class="art-rank">Pos. 23 / Vol 49.5K</span><span class="art-arrow">↗</span></div>
           </a>
           <a href="https://www.nplus.global/blogs/ai-skills-in-demand/" target="_blank" rel="nofollow noreferrer" class="art-card rv">
-            <div><div class="art-tag">SEO / Writing</div><div class="art-title">AI Skills in Demand</div></div>
+            <div><div class="art-tag">Content Strategy</div><div class="art-title">AI Skills in Demand</div></div>
             <div class="art-foot"><span class="art-rank">Pos. 23 / Vol 30</span><span class="art-arrow">↗</span></div>
           </a>
           <a href="https://www.nplus.global/blogs/subscription-based-learning-platforms/" target="_blank" rel="nofollow noreferrer" class="art-card rv">
-            <div><div class="art-tag">SEO / Writing</div><div class="art-title">Subscription-Based Learning Platforms</div></div>
+            <div><div class="art-tag">Content Strategy</div><div class="art-title">Subscription-Based Learning Platforms</div></div>
             <div class="art-foot"><span class="art-rank">Pos. 4 / Vol 50</span><span class="art-arrow">↗</span></div>
           </a>
           <a href="https://www.nplus.global/blogs/what-are-ai-virtual-assistants-and-how-can-businesses-benefit-from-them/" target="_blank" rel="nofollow noreferrer" class="art-card rv">
-            <div><div class="art-tag">SEO / Writing</div><div class="art-title">AI Virtual Assistants & Business Applications</div></div>
+            <div><div class="art-tag">Content Strategy</div><div class="art-title">AI Virtual Assistants & Business Applications</div></div>
             <div class="art-foot"><span class="art-rank">Pos. 43 / Vol 40</span><span class="art-arrow">↗</span></div>
           </a>
         </div>
@@ -1090,7 +1090,7 @@ hr.rule{border:none;border-top:1px solid var(--rule);margin:0 clamp(24px,6vw,80p
     </div>
   </div>
   <div class="blog-entries">
-    <div class="be rv" onclick="go('post-blog1')" style="cursor:pointer">
+    <a class="be rv" href="/blog/why-your-demand-gen-campaign-is-not-working" onclick="go('post-blog1');return false;" style="cursor:pointer;text-decoration:none;color:inherit">
       <div class="be-num">01</div>
       <div>
         <div class="be-tag">Demand Gen</div>
@@ -1098,7 +1098,7 @@ hr.rule{border:none;border-top:1px solid var(--rule);margin:0 clamp(24px,6vw,80p
         <div class="be-exc">Most underperforming campaigns get fixed in the wrong place. The problem is almost always upstream, and it comes down to two things: who you think you are talking to, and what you think they need to hear.</div>
       </div>
       <div><span class="be-pill">June 2026</span></div>
-    </div>
+    </a>
     <div class="be rv">
       <div class="be-num">02</div>
       <div>
@@ -1220,8 +1220,28 @@ window.addEventListener('scroll',()=>{
   document.getElementById('nav').classList.toggle('solid',window.scrollY>10);
 },{passive:true});
 
+// ─ URL ROUTING
+const routes = {
+  '/': 'home',
+  '/work': 'work',
+  '/blog': 'blog',
+  '/blog/why-your-demand-gen-campaign-is-not-working': 'post-blog1',
+  '/contact': 'contact'
+};
+const idToPath = {};
+for (const p in routes) { idToPath[routes[p]] = p; }
+
+const pageTitles = {
+  home: 'Paridhi Garg — Content & Demand Generation Marketer',
+  work: 'Work — Paridhi Garg',
+  blog: 'Blog — Paridhi Garg',
+  contact: 'Contact — Paridhi Garg',
+  'post-blog1': 'Why Your Demand Gen Campaign Is Not Working — Paridhi Garg'
+};
+
 // ─ PAGE NAVIGATION
-function go(id){
+function go(id, updateUrl){
+  if (updateUrl === undefined) updateUrl = true;
   document.querySelectorAll('.pg').forEach(p=>p.classList.remove('show'));
   document.querySelectorAll('.nav-links li a').forEach(a=>a.classList.remove('on'));
   document.querySelectorAll('.mobile-menu a:not(.mob-contact)').forEach(a=>a.classList.remove('on'));
@@ -1235,7 +1255,25 @@ function go(id){
   }
   window.scrollTo({top:0,behavior:'instant'});
   setTimeout(initReveal,50);
+
+  if (updateUrl) {
+    const path = idToPath[id] || '/';
+    if (location.pathname !== path) {
+      history.pushState({id:id}, '', path);
+    }
+  }
+  if (pageTitles[id]) document.title = pageTitles[id];
 }
+
+// ─ MATCH CURRENT URL TO A PAGE (on load and on back/forward)
+function routeFromLocation(){
+  let path = location.pathname.replace(/\/+$/,'');
+  if (path === '') path = '/';
+  const id = routes[path] || 'home';
+  go(id, false);
+}
+window.addEventListener('popstate', routeFromLocation);
+routeFromLocation();
 
 // ─ MOBILE MENU TOGGLE
 function toggleMenu(){
